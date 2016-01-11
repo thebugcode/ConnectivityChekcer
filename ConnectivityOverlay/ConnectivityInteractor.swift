@@ -17,8 +17,8 @@ class ConnectivityInteractor: NSObject {
     }
     
     func shouldAllowLargeDownloads() -> Bool {
-        if let allowDownloads = ConnectivityInteractor.shouldAllowDownloads {
-            return allowDownloads
+        if let allowDownloads = ConnectivityInteractor.shouldAllowDownloads where allowDownloads == true {
+            return true
         } else {
             switch (connectivityChecker.currentConnectionType()) {
             case .ReachableViaWiFi: return true
@@ -29,9 +29,14 @@ class ConnectivityInteractor: NSObject {
     }
     
     
-    func hideDownloadsRestrictedWarningUntilColdStart() {
+    func temporarilyDisableLargeDownloadsWarnings() {
         // This method uses a class variable as persistence between cold app starts.
         ConnectivityInteractor.shouldAllowDownloads = true
+    }
+    
+    
+    func reEnableLargeDownloadsWarnings() {
+        ConnectivityInteractor.shouldAllowDownloads = false
     }
     
 }

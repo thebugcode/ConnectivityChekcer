@@ -23,7 +23,7 @@ class SecondaryViewController: UIViewController {
     }
     
     @IBAction func didTapIAgree(sender: AnyObject) {
-        self.interactor?.hideDownloadsRestrictedWarningUntilColdStart()
+        self.interactor?.temporarilyDisableLargeDownloadsWarnings()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

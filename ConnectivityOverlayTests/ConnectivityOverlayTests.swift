@@ -29,11 +29,11 @@ class ConnectivityOverlayTests: XCTestCase {
         XCTAssertTrue(interactor.shouldAllowLargeDownloads() == false)
         
         //Asking the interactor to hide the warning allows downloads
-        interactor.hideDownloadsRestrictedWarningUntilColdStart()
+        interactor.temporarilyDisableLargeDownloadsWarnings()
         XCTAssertTrue(interactor.shouldAllowLargeDownloads() == true)
         
-        // Imitate a cold start by reseting the class variable
-        ConnectivityInteractor.shouldAllowDownloads = nil
+        // Imitate a cold app start
+        interactor.reEnableLargeDownloadsWarnings()
         XCTAssertTrue(interactor.shouldAllowLargeDownloads() == false)
     }
 }
