@@ -11,26 +11,42 @@ import XCTest
 
 class ConnectivityOverlayTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testIfWifiConnectionAllowsDownloads() {
+        let interactor = ConnectivityInteractor(connectivityChecker: WifiConnectivityChecker())
+        XCTAssertTrue(interactor.shouldAllowLargeDownloads() == true)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    
+    func testIf3GConnectionForbidsDownloads() {
+        let interactor = ConnectivityInteractor(connectivityChecker: WANConnectivityChecker())
+        XCTAssertTrue(interactor.shouldAllowLargeDownloads() == false)
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    func testIf3GConnectionAllowsDownloadsUntilNextColdStart() {
+        //By default a WAN connection doesnt allow large downloads
+        let interactor = ConnectivityInteractor(connectivityChecker: WANConnectivityChecker())
+        XCTAssertTrue(interactor.shouldAllowLargeDownloads() == false)
+        
+        //Asking the interactor to hide the warning allows downloads
+        interactor.hideDownloadsRestrictedWarningUntilColdStart()
+        XCTAssertTrue(interactor.shouldAllowLargeDownloads() == true)
+        
+        // Imitate a cold start by reseting the class variable
+        ConnectivityInteractor.shouldAllowDownloads = nil
+        XCTAssertTrue(interactor.shouldAllowLargeDownloads() == false)
     }
-    
+}
+
+
+class WANConnectivityChecker: ConnectivityChecker {
+  override func currentConnectionType() -> Reachability.NetworkStatus {
+        return .ReachableViaWWAN
+    }
+}
+
+class WifiConnectivityChecker: ConnectivityChecker {
+    override func currentConnectionType() -> Reachability.NetworkStatus {
+        return .ReachableViaWiFi
+    }
 }

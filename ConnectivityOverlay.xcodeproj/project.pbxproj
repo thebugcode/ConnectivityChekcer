@@ -13,6 +13,11 @@
 		0D6610581C3EC4DB002DB570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D6610571C3EC4DB002DB570 /* Assets.xcassets */; };
 		0D66105B1C3EC4DB002DB570 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D6610591C3EC4DB002DB570 /* LaunchScreen.storyboard */; };
 		0D6610661C3EC4DB002DB570 /* ConnectivityOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6610651C3EC4DB002DB570 /* ConnectivityOverlayTests.swift */; };
+		0D8F60721C430A0B005F8A8B /* ConnectivityInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F60711C430A0B005F8A8B /* ConnectivityInteractor.swift */; };
+		0D8F60751C43186E005F8A8B /* PrimaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F60731C43186E005F8A8B /* PrimaryViewController.swift */; };
+		0D8F60761C43186E005F8A8B /* SecondaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F60741C43186E005F8A8B /* SecondaryViewController.swift */; };
+		0D8F60781C4319D9005F8A8B /* ConnectivityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F60771C4319D9005F8A8B /* ConnectivityChecker.swift */; };
+		0D8F607A1C431BB7005F8A8B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F60791C431BB7005F8A8B /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 		0D6610611C3EC4DB002DB570 /* ConnectivityOverlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectivityOverlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D6610651C3EC4DB002DB570 /* ConnectivityOverlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityOverlayTests.swift; sourceTree = "<group>"; };
 		0D6610671C3EC4DB002DB570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D8F60711C430A0B005F8A8B /* ConnectivityInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectivityInteractor.swift; sourceTree = "<group>"; };
+		0D8F60731C43186E005F8A8B /* PrimaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryViewController.swift; sourceTree = "<group>"; };
+		0D8F60741C43186E005F8A8B /* SecondaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryViewController.swift; sourceTree = "<group>"; };
+		0D8F60771C4319D9005F8A8B /* ConnectivityChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectivityChecker.swift; sourceTree = "<group>"; };
+		0D8F60791C431BB7005F8A8B /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,11 @@
 			children = (
 				0D6610501C3EC4DB002DB570 /* AppDelegate.swift */,
 				0D6610521C3EC4DB002DB570 /* ViewController.swift */,
+				0D8F60731C43186E005F8A8B /* PrimaryViewController.swift */,
+				0D8F60741C43186E005F8A8B /* SecondaryViewController.swift */,
+				0D8F60711C430A0B005F8A8B /* ConnectivityInteractor.swift */,
+				0D8F60771C4319D9005F8A8B /* ConnectivityChecker.swift */,
+				0D8F60791C431BB7005F8A8B /* Reachability.swift */,
 				0D6610541C3EC4DB002DB570 /* Main.storyboard */,
 				0D6610571C3EC4DB002DB570 /* Assets.xcassets */,
 				0D6610591C3EC4DB002DB570 /* LaunchScreen.storyboard */,
@@ -197,8 +212,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D8F607A1C431BB7005F8A8B /* Reachability.swift in Sources */,
 				0D6610531C3EC4DB002DB570 /* ViewController.swift in Sources */,
+				0D8F60751C43186E005F8A8B /* PrimaryViewController.swift in Sources */,
+				0D8F60781C4319D9005F8A8B /* ConnectivityChecker.swift in Sources */,
 				0D6610511C3EC4DB002DB570 /* AppDelegate.swift in Sources */,
+				0D8F60721C430A0B005F8A8B /* ConnectivityInteractor.swift in Sources */,
+				0D8F60761C43186E005F8A8B /* SecondaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +408,7 @@
 				0D66106C1C3EC4DB002DB570 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D66106D1C3EC4DB002DB570 /* Build configuration list for PBXNativeTarget "ConnectivityOverlayTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +417,7 @@
 				0D66106F1C3EC4DB002DB570 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
